@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title> First Nodejs </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="main.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
 <body>
-    <input type="text" id="name" />
-    <button onclick="go()">Press</button>
-
+    <input type="text" name="" id="inp" >
+    <button onclick="go()">press</button>
 </body>
 <script>
-function go(){
-    fetch('/home',{                //sending reuest to server
-        method: 'post',         
-        headers: {
-            'Content-Type':'application/json'         // Application content in json form
-        },
-        body: JSON.stringify({
-            name : 'Suleman',
-            age : 22,
-            class: 'bscs'
+    function go(){
+        fetch('/home',{
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name:'awais',
+                age: 12,
+                class: 'bscs'
+            })
+        }).then(function(resp1){
+            alert(resp1);
+            return resp1.text();
+        }).then(function(resp2){
+            alert(resp2);
+        }).catch(function(err){
+            alert(err)
         })
-    }).then(function() {
-        alert("Data recieved")
-    }).catch(function (err){
-        alert('Error =', err)
-    })              
-}
+    }
 </script>
 </html>
