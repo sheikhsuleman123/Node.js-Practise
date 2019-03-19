@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> First Nodejs </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <input type="text" id="name" />
+    <button onclick="go()">Press</button>
+
+</body>
+<script>
+function go(){
+    fetch('/home',{                //sending reuest to server
+        method: 'post',         
+        headers: {
+            'Content-Type':'application/json'         // Application content in json form
+        },
+        body: JSON.stringify({
+            name : 'Suleman',
+            age : 22,
+            class: 'bscs'
+        })
+    }).then(function() {
+        alert("Data recieved")
+    }).catch(function (err){
+        alert('Error =', err)
+    })              
+}
+</script>
+</html>
