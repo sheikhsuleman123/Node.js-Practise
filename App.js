@@ -5,7 +5,7 @@ let app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.post('/home',function(req,res){
-    res.json({a:1})
+    res.sendfile('./index2.html');
 })
 app.use(express.static('./'));
 app.listen(4242);
